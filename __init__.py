@@ -44,10 +44,13 @@ def fulljson ():
     json_content = json.loads(raw_content.decode('utf-8'))
     results = []
     for element in json_content:
+        print("debut for")
         datepf = element['commit']['author']['date']
         date_object = datetime.strptime(datepf, '%Y-%m-%dT%H:%M:%SZ')
         minutes = date_object.minute
+        print("datepf :",datepf,";date_object:",date_object,";minutes:",minutes)
         results.append({'minute': minutes})
+        print("fin for")
     return jsonify(results=results)
 
 @app.route("/commits/")
