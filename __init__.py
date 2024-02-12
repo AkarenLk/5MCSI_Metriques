@@ -52,7 +52,20 @@ def fulljson ():
         print("datepf :",datepf,";date_object:",date_object,";heure:",heures,";minute:",minutes)
         results.append({'heure':heures,'minute': minutes})
         print("fin for")
-    return jsonify(results=results)
+        print(results[:])
+
+    minutes_count = {}
+    for item in data["results"]:
+      minute = item["minute"]
+      if minute in minutes_count:
+        minutes_count[minute] += 1
+      else:
+        minutes_count[minute] = 1
+    #Créer un dictionnaire final avec toutes les minutes de 0 à 59
+    final_count = {i: minutes_count.get(i, 0) for i in range(60)}
+    print(final_count[:])
+
+    return jsonify(final_count)
 
 @app.route("/commits/")
 def mongraphique3():
