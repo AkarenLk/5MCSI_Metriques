@@ -49,7 +49,10 @@ def fulljson ():
         minutes = date_object.minute
         results.append({'minute': minutes})
     return jsonify(results=results)
-  
+
+@app.route("/commits/")
+def mongraphique3():
+    return render_template("commits.html")
   
 if __name__ == "__main__":
   app.run(debug=True)
