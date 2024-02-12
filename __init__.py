@@ -50,7 +50,7 @@ def fulljson ():
         minutes = date_object.minute
         heures = date_object.hour
         print("datepf :",datepf,";date_object:",date_object,";heure:",heures,";minute:",minutes)
-        results.append({'minute': minutes})
+        results.append({'heure':heures,'minute': minutes})
         print("fin for")
     return jsonify(results=results)
 
