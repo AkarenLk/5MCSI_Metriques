@@ -47,7 +47,7 @@ def fulljson ():
         datepf = element['commit']['author']['date']
         date_object = datetime.strptime(datepf, '%Y-%m-%dT%H:%M:%SZ')
         minutes = date_object.minute
-        results.append({'minute': minutes})
+        results.append({'minute': minutes;'date preformat':datepf})
     return jsonify(results=results)
 
 @app.route("/commits/")
