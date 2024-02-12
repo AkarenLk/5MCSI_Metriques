@@ -48,7 +48,8 @@ def fulljson ():
         datepf = element['commit']['author']['date']
         date_object = datetime.strptime(datepf, '%Y-%m-%dT%H:%M:%SZ')
         minutes = date_object.minute
-        print("datepf :",datepf,";date_object:",date_object,";minutes:",minutes)
+        heures = date_object.hour
+        print("datepf :",datepf,";date_object:",date_object,";heure:",heures,";minute:",minutes)
         results.append({'minute': minutes})
         print("fin for")
     return jsonify(results=results)
