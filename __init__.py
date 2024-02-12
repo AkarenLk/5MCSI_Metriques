@@ -37,11 +37,18 @@ def mongraphique():
 def mongraphique2():
     return render_template("histo.html")
 
-@app.route('/extract-minutes/<date_string>')
-def extract_minutes(date_string):
-        date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
+@app.route('/fulljson/')
+def fulljson ():
+    response = urlopen('https://api.github.com/repos/AkarenLk/5MCSI_Metriques/commits')
+    raw_content = response.read()
+    json_content = json.loads(raw_content.decode('utf-8'))
+    results = []
+    for element in json_content:
+        datepf = element['commit']['author']['date']
+        date_object = datetime.strptime(datepf, '%Y-%m-%dT%H:%M:%SZ')
         minutes = date_object.minute
-        return jsonify({'minutes': minutes})
+        results.append({'minute': minutes})
+    return jsonify(results=results)
   
   
 if __name__ == "__main__":
