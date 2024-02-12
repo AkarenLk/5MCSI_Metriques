@@ -6,8 +6,8 @@
   </head>
   <body>
     <p> test </p>
-    <!--<div id="chart_div"></div>
-    <script>
+    <div id="chart_div"></div>
+    <!--<script>
       google.charts.load('current', { packages: ['corechart'] });
       google.charts.setOnLoadCallback(drawBackgroundColor);
      function drawBackgroundColor() {
@@ -27,14 +27,15 @@
     };
     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(dataTable, options);
-  }
+  } -->
   // Récupération de données depuis notre API /paris/
+  <script>
   fetch('/fulljson/')
     .then(response => response.json())
     .then(data => {
       drawChart(data);
     })
-}
-    </script>-->
+
+    </script>
   </body>
 </html>
