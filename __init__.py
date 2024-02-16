@@ -13,7 +13,7 @@ def hello_world():
 
 
 @app.route("/contact/")
-def MaPremiereAPI():
+def contact():
     return render_template("contact_page.html")
 
 @app.route('/paris/')
