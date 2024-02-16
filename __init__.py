@@ -64,6 +64,7 @@ def fulljson ():
     #Créer un dictionnaire final avec toutes les minutes de 0 à 59
     final_count = {i: minutes_count.get(i, 0) for i in range(60)}
     print(final_count[:])
+  #test sonarQ
 
     return jsonify(final_count)
 
